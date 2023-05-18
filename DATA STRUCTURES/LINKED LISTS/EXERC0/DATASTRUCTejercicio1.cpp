@@ -12,12 +12,13 @@
 int main(void)
 {
     int num_calif, *calif;
+    
     std::cout << "INGRESE EL NUMERO DE CALIFICACIONES: ";
-    std::cin>>num_calif;
+    std::cin >> num_calif;
 
     //CREAMOS UN ARRAY TIPO PUNTERO *calif QUE ALMACENA n CALIFICACIONES
     //RESERVAMOS EL ESPACIO EN BYTES 
-    calif = new int [num_calif]; 
+    calif = new int [ num_calif ]; 
     
     for (int i = 0; i < num_calif ; ++i)
     {
