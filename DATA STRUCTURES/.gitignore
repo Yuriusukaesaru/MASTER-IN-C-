@@ -1,0 +1,6 @@
+# Comentarios comienzan con símbolo gato # (numeral)
+.vscode
+bin/
+compile_flags.txt
+bin
+main.obj
