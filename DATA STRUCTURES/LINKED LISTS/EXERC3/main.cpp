@@ -21,7 +21,7 @@ class Linked_list
     public:
         Linked_list();
         ~Linked_list();
-        void add_front(int);
+        void add_front(const int &);
         void remove_front();
         int get_front()const;
         void get_all()const;
@@ -34,7 +34,7 @@ Linked_list::Linked_list()
     head = nullptr;
 }
 
-void Linked_list::add_front(int _data)
+void Linked_list::add_front(const int &_data)
 {
     Node *pnt = new Node;
     pnt->next = head;
@@ -79,8 +79,8 @@ int main( void )
 {
 
     Linked_list test;
-
-    test.add_front( 1 ); //adding 1
+    int data = 1;
+    test.add_front( data  ); //adding 1
     test.get_all( ); // 1
     test.add_front( 2 ); // 2,1
     test.add_front( 3 );// 3,2,1
