@@ -1,3 +1,11 @@
+//
+//
+//  Created by Yuriusukaesaru on 5/21/2023
+//  Copyright © 2023 Yuriusukaearu, All rights reserved.
+//
+//
+
+
 #include <iostream>
 #include <stdlib.h>
 
