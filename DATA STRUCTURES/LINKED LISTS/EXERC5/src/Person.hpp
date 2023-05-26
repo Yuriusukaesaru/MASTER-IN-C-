@@ -6,11 +6,19 @@
 
 class Person
 {
+    public:
+        Person () {
+            name = "";
+            ID = "";
+            major = "";
+            age = 0;
+            next = nullptr;
+        }
     private:
-    std::string name, ID, major;
-    int age;
-    Person *next;
-    friend class Person_list;
+        std::string name, ID, major;
+        int age;
+        Person *next;
+        friend class Person_list;
 
 };
 
