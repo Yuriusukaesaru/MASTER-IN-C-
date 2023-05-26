@@ -51,6 +51,7 @@ void Person_list::add_end( std::string _name, std::string _ID, std::string _majo
     Person *pnt = new Person;
     pnt->next = nullptr;
     Person *current = head;
+
     if (head == nullptr)
     {
         pnt = head;
@@ -75,26 +76,25 @@ void Person_list::add_end( std::string _name, std::string _ID, std::string _majo
 
 void Person_list::remove_last()
 {
-    Person *previous;
+    Person *previous = nullptr;
     Person *current = head;
 
     if (head == nullptr) //IF THERE'S NO INFOMATION 
     {
         std::cout << "\nTHE LIST IS EMPTY, WE CANNOT DELETE ANY INFORMATION";
     }   
-    else if(head->next == nullptr)   //IF THERE'S ONLY ONE DATA
+    if(head->next == nullptr)   //IF THERE'S ONLY ONE DATA
     {
         delete head;
         head = nullptr;
 
     }
-    else {
     while(current->next != nullptr) //IF WE GOT MULTIPLE DATAS
     {
         previous = current;
         current = current->next;
     }
-    }
+    
     previous->next = nullptr;
     delete current;
 
