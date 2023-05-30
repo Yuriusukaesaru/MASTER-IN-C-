@@ -1,3 +1,10 @@
+//
+//
+//  Created by Yuriusukaesaru on 5/29/2023
+//  Copyright © 2023 Yuriusukaearu, All rights reserved.
+//
+//
+
 #ifndef _Person_
 #define _Person_
 
@@ -24,16 +31,21 @@ class Person
 
 class Person_list
 {
-    public:
-        Person_list();
-        ~Person_list();
-        void add_front( std::string, std::string, std::string, int  );
-        void add_end( std::string, std::string, std::string, int );
-        void remove_front();
-        void remove_last();
-        void get_all();
-    private:
-       Person *head;
+public:
+    Person_list();
+    ~Person_list();
+    void add_front(std::string, std::string, std::string, int);
+    void add_end(std::string, std::string, std::string, int);
+    void add_at(std::string, std::string, std::string, int, int);
+    void remove_at( int );
+    void remove_front();
+    void remove_last();
+    void get_first()const;
+    void get_last()const;
+    void get_all()const;
+
+private:
+    Person *head, *tail;
 };
 
 
