@@ -1,69 +1,81 @@
+/*THIS CODE CONSITS IN USING A UNIDIMENSIONAL ARRAY TO SOLVE THE NEXT PROBLEM
+A COMPANY PAYS ITS EMPLOYS BY COMMISION. THE SELLERS GET $200 A WEEK MORE 9%
+OF THEIR TOTAL SELLS OF THAT WEEK. FOR INSTANCE A SELLER WHO ACUMULATES 
+$5000 IN SELLS, WILL GET $200 PLUS 9% OF 5000 BEING IN TOTAL $650.
+CODE A PROGRAM (USING A COUNTER ARRAY) TO DETERMINE HOW MANY SELLERS
+GOT SALARY IN THE NEXT RANGES:
+
+                200-299
+                300-399
+                400-499
+                    .
+                    .
+                    .
+            1000 - OR MORE */
+
 #include <iostream>
 #include <array>
 
-    //     POSICION ARRAY 
-        // 0  - 99 POSICICION 0  - 1
-        // 100 - 199 POSICION 1  - 2
-        // 200 - 299 POSICION 2  - 3
-        // 300 - 399 POSICION 3  - 4
-        // 400 - 499 POSICION 4  - 5
-        // 500 - 599 POSICION 5  - 6     //RANGO DEL ARRAY
-        // 600 - 699 POSICION 6  - 7
-        // 700 - 799 POSICION 7  - 8
-        // 800 - 899 POSICION 8  - 9
-        // 900 - 999 POSICION 9  - 10
-        // 1000 O MAS POSICION 10 - 11
+    //     POSITION ARRAY 
+        // 0  - 99 POSITION 0  - 1
+        // 100 - 199 POSITION 1  - 2
+        // 200 - 299 POSITION 2  - 3
+        // 300 - 399 POSITION 3  - 4
+        // 400 - 499 POSITION 4  - 5
+        // 500 - 599 POSITION 5  - 6     //ARRAY RANGE
+        // 600 - 699 POSITION 6  - 7
+        // 700 - 799 POSITION 7  - 8
+        // 800 - 899 POSITION 8  - 9
+        // 900 - 999 POSITION 9  - 10
+        // 1000 OR MORE POSITION 10 - 11
 
-const size_t rango_comision { 11 };
+const size_t range_commission { 11 };
 
-void ventas (std:: array <int, rango_comision> &);
-void desplegar_empleados( std::array <int, rango_comision> &);
+void sells (std:: array <int, range_commission> &);
+void display_employes( std::array <int, range_commission> &);
 
 int main(void)
 {
-        
+    
+    std::array < int , range_commission> salaries {}; 
 
-    std::array < int , rango_comision > salarios {}; 
-
-    ventas (salarios);
-    desplegar_empleados(salarios);
-
+    sells (salaries);
+    display_employes(salaries);
 
 }
 
-void ventas ( std::array <int,rango_comision> &empleado)
+void sells ( std::array <int,range_commission> &_employ)
 {
 
-    double monto_ventas { 0 }, comision { 0 } , salario { 0 };
+    double sales_amount { 0 },  salary { 0 };
     
-    std::cout << "INGRESE LA CANTIDAD DE COMISION O INTRODUZCA UN -1 PARA SALIR:" ; //sentinela
-    std::cin >> monto_ventas;
+    std::cout << "INPUT THE COMMISSION OR -1 TO EXIT" ; //sentinel
+    std::cin >> sales_amount;
     
 
-    while (monto_ventas != -1)
+    while (sales_amount != -1)
     {
-        salario = 200.00 + monto_ventas * .09;// ES EL %9 PORCIENTO QUE RECIBAS MAS TU PAGO NORMAL
-        std::cout << "\nEL SALARIO DEL EMPLEADO ES: " << salario <<'\n';
-        int x = static_cast< int >(salario) / 100; // SE DIVIDE ENTRE 100 EL SALARIO Y SE CONVIERTE A INT
-        ++empleado [ ( x < 10 ? x : 10) ]; // AQUI EL COMO EL ARRAY ES DE 0 - 10  (SIZE 11)
-                                            //DONDE LA POSICION 10 ES MAYOR O IGUAL A 1000
-        std::cout << "INGRESE LA CANTIDAD DE COMISION O INTRODUZCA UN -1 PARA SALIR:" ;
-        std::cin >> monto_ventas;
+        salary = 200.00 + sales_amount * .09;
+        std::cout << "\nTHE SALARY IS: " << salary <<'\n';
+        int x = static_cast< int >(salary) / 100; 
+        ++_employ [ ( x < 10 ? x : 10) ]; 
+        std::cout << "INPUT THE COMMISSION OR -1 TO EXIT" ;
+        std::cin >> sales_amount;
     }
 
 
 }
 
-void desplegar_empleados(std::array<int, rango_comision> &desplegar)
+void display_employes(std::array<int, range_commission> &_display)
 {
 
-    std::cout << "FRECUENCIA" << std::endl;
+    std::cout << "FREQUENCY" << std::endl;
 
-    for (int i = 2 ; i < 10 ; ++i) //imprimimos desde la posicion 3 del array 
+    for (int i = 2 ; i < 10 ; ++i) //PRINT FROM THE THIRD ELEMENT IN THE ARRAY
     {
-        std::cout << "DE $" <<i << "00" << '-' 
-                  <<i << "99 :" << desplegar[i]<< std::endl;
+        std::cout << " $" << i << "00" << '-' 
+                  << i << "99 :" << _display[ i ]<< std::endl;
     }
-    std::cout << "DE MAS DE 1000: " << desplegar[10] <<std::endl;
+    std::cout << "MORE THAN 1000: " << _display[ 10 ] <<std::endl;
         
 }
