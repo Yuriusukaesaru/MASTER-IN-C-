@@ -13,10 +13,7 @@ GOT SALARY IN THE NEXT RANGES:
                     .
             1000 - OR MORE */
 
-#include <iostream>
-#include <array>
-
-    //     POSITION ARRAY 
+            //     POSITION ARRAY 
         // 0  - 99 POSITION 0  - 1
         // 100 - 199 POSITION 1  - 2
         // 200 - 299 POSITION 2  - 3
@@ -28,6 +25,9 @@ GOT SALARY IN THE NEXT RANGES:
         // 800 - 899 POSITION 8  - 9
         // 900 - 999 POSITION 9  - 10
         // 1000 OR MORE POSITION 10 - 11
+
+#include <iostream>
+#include <array>
 
 const size_t range_commission { 11 };
 
