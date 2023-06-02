@@ -29,7 +29,7 @@ GOT SALARY IN THE NEXT RANGES:
         // 900 - 999 POSITION 9  - 10
         // 1000 OR MORE POSITION 10 - 11
 
-const size_t range_commissioooon { 11 };
+const size_t range_commission { 11 }; 
 
 void sells (std:: array <int, range_commission> &);
 void display_employes( std::array <int, range_commission> &);
