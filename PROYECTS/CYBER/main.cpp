@@ -1,9 +1,15 @@
+//
+//
+//  Created by Yuriusukaesaru on 6/09/2023
+//  Copyright © 2023 Yuriusukaearu, All rights reserved.
+//
+//
+
 #include <iostream>
 #include <string>
 #include <array>
-#include <conio.h>
-#include <vector>
-#include <cstring>
+#include <conio.h> //to use _getch()
+#include <cstring> //to use strcmp
 
 const int column{ 2 };
 const int rows{ 2 };
@@ -13,6 +19,51 @@ typedef struct{
     std::string message = "AVAILABLE";
     int available = 0;
 }data;
+
+bool change(std::array<std::array<data,column>,rows> &_array );
+void change_user(std::array<std::array<data,column>,rows> &_array );
+void print(std::array<std::array<data, column>,rows> &_array);
+bool password(); 
+
+
+int main( void )
+{
+   std::array<std::array<data,column>,rows>_info;
+   std::string user;
+  
+   int x;
+   do{
+    std::cout << "CYBER PRIME " << '\n';
+    std::cout << "INPUT 1 TO HABILITY A PC" << '\n'
+             << "INPUT 2 TO DISPONIBILITY OF PC" << '\n'
+             << "INPUT 3 CHANGE USERS" << '\n'
+             << "DECISION OR ANY KEY TO LEAVE: ";
+    std::cin >> x;
+    std::cin.ignore();
+    switch ( x )
+        {
+            case 1:
+                if (password( ))
+                {
+                    if( change(_info) ) 
+                    std::cout << '\n' << "CHANGED :)"; 
+                }else
+                {
+                    std::cout << '\n' <<" INCORRECT PASSWORD:(";
+                }
+                std::cin.clear();
+                std::cin.sync();
+                std::cout << '\n';
+            break;
+            case 2:
+               print(_info);
+            break;
+            case 3:
+                change_user(_info);
+            break;
+        }
+    } while( x > 0 && x < 4);
+}
 
 bool change(std::array<std::array<data,column>,rows> &_array )
 {
@@ -27,7 +78,6 @@ bool change(std::array<std::array<data,column>,rows> &_array )
 
     if (_array[targetRow][targetCol].available == 0) {
         std::cout << '\n' << "INPUT THE USER'S NAME: ";
-        std::string user;
         std::getline(std::cin, user);
         _array[targetRow][targetCol].user_name = user;
         _array[targetRow][targetCol].message = "OCCUPIED";
@@ -38,6 +88,28 @@ bool change(std::array<std::array<data,column>,rows> &_array )
     {
         std::cout << "Position [" << targetRow << "][" << targetCol << "] is not available." << std::endl;
         return false;
+    }
+}
+
+void change_user(std::array<std::array<data,column>,rows> &_array )
+{
+    int x;
+    std::string user = "";
+    std::cout << '\n' << "ENTER THE NUMBER OF PC TO CHANGE: ";
+    std::cin >> x;   
+    std::cin.ignore();
+
+    int targetRow = (x - 1) / column;  // Calculate the row index based on user input
+    int targetCol = (x - 1) % column;  // Calculate the column index based on user input
+
+    if (_array[targetRow][targetCol].available == 1) {
+        _array[targetRow][targetCol].user_name = user;
+        _array[targetRow][targetCol].message = "AVAILABLE";
+        _array[targetRow][targetCol].available = 0;
+        std::cout << "Position [" << targetRow << "][" << targetCol << "] is now available " << user << std::endl;
+    } else
+    {
+        std::cout << "Position [" << targetRow << "][" << targetCol << "] is already available." << std::endl;
     }
 }
 
@@ -101,43 +173,4 @@ bool password() {
         return true;
     }
     return false;
-}
-
-int main( void )
-{
-   std::array<std::array<data,column>,rows>_info;
-   std::string user;
-   std::cout << "CYBER PRIME " << '\n';
-   int x;
-   do{
-   std::cout << "INPUT 1 TO HABILITY A PC" << '\n'
-             << "INPUT 2 TO DISPONIBILITY OF PC" << '\n'
-             << "INPUT 3 TO CHECK USER'S HISTORY" << '\n'
-             << "DECISION OR ANY KEY TO LEAVE: ";
-    std::cin >> x;
-    std::cin.ignore();
-    switch ( x )
-        {
-            case 1:
-                if (password( ))
-                {
-                    if( change(_info) ) 
-                    std::cout << '\n' << "CHANGED :)"; 
-                }else
-                {
-                    std::cout << '\n' <<" INCORRECT PASSWORD:(";
-                }
-                std::cin.clear();
-                std::cin.sync();
-                std::cout << '\n';
-            break;
-            case 2:
-               print(_info);
-               std::cin.ignore();
-            break;
-            case 3:
-                //LOADING
-            break;
-        }
-    } while( x > 0 && x < 4);
 }
