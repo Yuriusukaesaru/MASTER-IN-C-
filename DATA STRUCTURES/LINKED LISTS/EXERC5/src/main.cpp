@@ -24,7 +24,7 @@ int main(void)
     test.add_front("GUADALUPE MALDONADO DE LOS ALCAZAR" , "1234FFDGYSS", "ARQUITECTURA", 21);
     test.add_front("NORMA ANGELICA MALDONADO" , "1654HFD67S", "ARTE", 22);
     test.add_front("LUPITA DOLORES PADERNA DEL RIOS" , "123444DDASS", "GASTRONOMIA", 20);
-    test.add_at("TOMAS HOWLETTE BONES JONES", "BHHJB8873HD", "DERECHO", 19 , 0);
+    test.add_at("TOMAS HOWLETTE BONES JONES", "BHHJB8873HD", "DERECHO", 19 , 1);
     test.get_all();
     test.remove_at(3);
     std::cout << "\nREMOVING\n"

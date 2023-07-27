@@ -14,6 +14,7 @@
 Person_list::Person_list()
 {
     head = nullptr;
+    tail = nullptr;
 }
 
 Person_list::~Person_list()
